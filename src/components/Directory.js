@@ -1,31 +1,48 @@
-import React, {Component} from "react";
-import contactsData from "../contactsData"
-import ContactCard from "./ContactCard"
+import React, { Component } from "react";
+import contactsData from "../contactsData";
+import ContactCard from "./ContactCard";
 
-
-class Directory extends Component{
-constructor(){
+class Directory extends Component {
+  constructor() {
     super();
-    this.state= {
-        contacts: contactsData
+    this.state = {
+      contacts: []
+    };
+    this.addHandler = this.addHandler.bind(this);
+    this.delHandler = this.delHandler.bind(this);
+  }
+
+  addHandler() {
+    this.setState({
+      contacts: contactsData
+    });
+  }
+
+  delHandler() {
+    this.setState({
+      contacts: []
+    });
+  }
+
+  render() {
+    const cards = this.state.contacts.map((contact, idx) => (
+      <ContactCard info={contact} key={idx} />
+    ));
+
+    let contenido;
+    if (cards.length > 0) {
+      contenido = cards;
+    } else {
+      contenido = <p>No hay contactos disponibles</p>;
     }
-}
- render(){
-    const cards = this.state.contacts.map((contact, idx) => 
-    <ContactCard info={contact} key={idx} />);
-  //IF ELSE
-  let  contenido;
-  if (cards.length > 0)
-   {
-    contenido = cards;
-   } else {
-     contenido = <p>No hay contactos disponibles</p>;
-   }
-    return(
-        <>
+    return (
+      <>
+        <button onClick={this.addHandler}>Agregar</button>
+        <button onClick={this.delHandler}>Borrar</button>
+
         {contenido}
-        </>   
-     );
+      </>
+    );
   }
 }
 export default Directory;

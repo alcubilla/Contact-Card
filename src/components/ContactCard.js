@@ -1,6 +1,9 @@
 import React from "react";
 
 const ContactCard = props => {
+  const sayHi = () => {
+    console.log ("Hola mundo gatuno");
+  }
 return(
 
   <div className="container" id="tarjeta">
@@ -9,7 +12,8 @@ return(
   <div className="card-body">
     <h3 className="card-title">{props.info.name}</h3>
     <p className="card-text">  {props.info.phone} </p>
-    <a href="#" className="btn btn-danger">{props.info.email} </a>
+    <p className="card-text">  {props.info.email} </p>
+    <button  className="btn btn-danger" onClick={sayHi}>Click me</button>
   </div>
 </div>
 </div>
