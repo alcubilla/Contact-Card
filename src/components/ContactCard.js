@@ -13,7 +13,7 @@ return(
     <h3 className="card-title">{props.info.name}</h3>
     <p className="card-text">  {props.info.phone} </p>
     <p className="card-text">  {props.info.email} </p>
-    <button  className="btn btn-danger" onClick={sayHi}>Click me</button>
+    <button  className="btn btn-danger" onClick={sayHi}>Adoptame</button>
   </div>
 </div>
 </div>

@@ -37,8 +37,8 @@ class Directory extends Component {
     }
     return (
       <>
-        <button onClick={this.addHandler}>Agregar</button>
-        <button onClick={this.delHandler}>Borrar</button>
+        <button onClick={this.addHandler} className="btn btn-primary m-2">Agregar</button>
+        <button onClick={this.delHandler} className="btn btn-danger m-2">Borrar</button>
 
         {contenido}
       </>
