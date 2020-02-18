@@ -11,12 +11,14 @@ code {
   padding: 0%;
 }
 #title{
-  font-family: 'Lemonada';
   color: #eedede;
+ 
 }
 
 p{
   font-family: 'Lemonada';
+  font-size: 12px;
+  margin: 0cm;
 }
 .card{
   max-width: 300px;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import contactsData from "../contactsData";
 import ContactCard from "./ContactCard";
+import FormContainer from "../containers/FormContainer";
 
 class Directory extends Component {
   constructor() {
@@ -29,18 +30,18 @@ class Directory extends Component {
       <ContactCard info={contact} key={idx} />
     ));
 
-    let contenido;
-    if (cards.length > 0) {
-      contenido = cards;
-    } else {
-      contenido = <p>No hay contactos disponibles</p>;
-    }
+    // let contenido;
+    // if (cards.length > 0) {
+    //   contenido = cards;
+    // } else {
+    //   contenido = <p>No hay contactos disponibles</p>;
+    // }
     return (
       <>
-        <button onClick={this.addHandler} className="btn btn-primary m-2">Agregar</button>
-        <button onClick={this.delHandler} className="btn btn-danger m-2">Borrar</button>
-
-        {contenido}
+        {/* <button onClick={this.addHandler} className="btn btn-primary m-2">Ver contactos</button>
+        <button onClick={this.delHandler} className="btn btn-danger m-2">Borrar contactos</button> */}
+        <FormContainer />
+        {/* {contenido} */}
       </>
     );
   }
