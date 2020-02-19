@@ -1,73 +1,51 @@
 import React, { Component } from 'react';
-import contactsData from "../contactsData"
+//import contactsData from "../contactsData"
 import Input from "../components/Input"
 import Button from "../components/Button"
 import PreviewData from "../components/PreviewData"
 
 
 class FormContainer extends Component {
-    constructor(){
-        super();
-        this.state ={
-            data: contactsData,
+   state ={
+            data: [],
             newContact:{
-            name:'',
-            email:'',
-            phone:''
+                name:'',
+                email:'',
+                phone:'',
+                website: ''
             }
-        }
-        this.handleName = this.handleName.bind(this);
-        this.handleEmail = this.handleEmail.bind(this);
-        this.handlePhone = this.handlePhone.bind(this);
-        this.handleFormSubmit = this.handleFormSubmit.bind(this);
-        this.handleClearForm = this.handleClearForm.bind(this);
-        
-
     }
-    
-    handleName(e){
-        e.preventDefault();
+  
+    AddContact = (e) =>{
+    e.preventDefault();
+    const url = 'https://jsonplaceholder.typicode.com/users';
+    fetch(url)
+        .then(response => response.json())
+        .then (data => {
+          
+            this.setState({
+                data: data
+            });
+        });
+    }   
+     
+
+    handleInput =(e) =>{
+        
         let value = e.target.value;
-        this.setState (
+        let name = e.target.name;
+     
+        this.setState(
             prevState => ({
                 newContact: {
                     ...prevState.newContact,
-                    name: value
+                    [name]: value,
                 }
             })
-        );
-        
+        )
     }
-
-    handleEmail(e){
-        e.preventDefault();
-        let value = e.target.value;
-        this.setState (
-            prevState => ({
-                newContact: {
-                    ...prevState.newContact,
-                    email: value
-                }
-            })
-        );
-        
-    }
-
-    handlePhone(e){
-    
-        let value = e.target.value;
-        this.setState (
-            prevState => ({
-                newContact: {
-                    ...prevState.newContact,
-                    phone: value
-                }
-            })
-        );
-        
-    }
-
-    handleFormSubmit(e){
+               
+    handleFormSubmit = (e) =>{
         e.preventDefault();
         let userContact = this.state.newContact;
         this.setState(
@@ -77,20 +55,22 @@ class FormContainer extends Component {
                 newContact:{
                     name:'',
                     email:'',
-                    phone:''
+                    phone:'',
+                    website:''
                 }
                 }
             
         ));
     }
 
-    handleClearForm(e){
+    handleClearForm = (e) =>{
         e.preventDefault();
         this.setState(
             {   newContact:{
                 name: '',
                 email:'',
-                phone: ''
+                phone: '',
+                website:''
                 }
             }    
         );
@@ -111,26 +91,37 @@ class FormContainer extends Component {
                             type="text"
                             value={this.state.newContact.name}
                             placeholder="Ingrese el nombre"
-                            handleChange={this.handleName}
+                            handleChange={this.handleInput}
                         />
                         <Input
                             name="email"
                             type="email"
                             value={this.state.newContact.email}
                             placeholder= "ingrese el e-mail"
-                            handleChange={this.handleEmail}  
+                            handleChange={this.handleInput}  
                         />
                         <Input
                             name="phone"
                             type="number"
                             value={this.state.newContact.phone}
                             placeholder= "ingrese el telefono"
-                            handleChange={this.handlePhone}  
+                            handleChange={this.handleInput}  
                         />
-                        
+                        <Input
+                            name="website"
+                            type="number"
+                            value={this.state.newContact.website}
+                            placeholder= "ingrese el Website"
+                            handleChange={this.handleInput}  
+                        />
                         <Button 
                             action ={this.handleFormSubmit}
                             title = "Agregar"
+                        />
+                        
+                        <Button 
+                            action ={this.AddContact}
+                            title = "Ver Contactos"
                         />
                     
                         <Button 
