@@ -26,9 +26,9 @@ class Directory extends Component {
   }
 
   render() {
-    const cards = this.state.contacts.map((contact, idx) => (
-      <ContactCard info={contact} key={idx} />
-    ));
+    // const cards = this.state.contacts.map((contact, idx) => (
+    //   <ContactCard info={contact} key={idx} />
+    // ));
 
     // let contenido;
     // if (cards.length > 0) {
