@@ -8,6 +8,7 @@ const PreviewData = (props) => {
         <p>Nombre: {user.name}</p>
         <p>Email: {user.email}</p>
         <p>Teléfono: {user.phone}</p>
+        <p>Website: {user.website}</p>
       </div>
     </div>
   ));

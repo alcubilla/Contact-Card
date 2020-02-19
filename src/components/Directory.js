@@ -4,22 +4,19 @@ import ContactCard from "./ContactCard";
 import FormContainer from "../containers/FormContainer";
 
 class Directory extends Component {
-  constructor() {
-    super();
-    this.state = {
+  state = {
       contacts: []
     };
-    this.addHandler = this.addHandler.bind(this);
-    this.delHandler = this.delHandler.bind(this);
+   
   }
 
-  addHandler() {
+  addHandler = () => {
     this.setState({
       contacts: contactsData
     });
   }
 
-  delHandler() {
+  delHandler = () => {
     this.setState({
       contacts: []
     });
