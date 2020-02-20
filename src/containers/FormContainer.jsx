@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import contactsData from "../contactsData"
 import Input from "../components/Input"
 import Button from "../components/Button"
 import PreviewData from "../components/PreviewData"
@@ -81,8 +80,8 @@ class FormContainer extends Component {
 
     render() { 
         return ( 
-            <div className="row m-6">
-                <div className="col-4">
+            <div className="row m-4">
+                <div className="col-6">
                     
                     <form>
                     <h5 className="m-3">Agregar un Contacto Nuevo</h5>
@@ -118,16 +117,17 @@ class FormContainer extends Component {
                             action ={this.handleFormSubmit}
                             title = "Agregar"
                         />
-                        
-                        <Button 
-                            action ={this.AddContact}
-                            title = "Ver Contactos"
-                        />
                     
                         <Button 
                             action ={this.handleClearForm}
-                            title = "Limpiar"
+                            title = "Borrar"
                         />
+
+                        <Button 
+                            action ={this.AddContact}
+                            title = "Ver todos"
+                        />  
+
                     </form>
                </div>
                <PreviewData data={this.state.data} 

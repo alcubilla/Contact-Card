@@ -14,7 +14,7 @@ const PreviewData = (props) => {
   ));
     
   return (
-    <div className="col-4">
+    <div className="col-6">
     <h3 className="m-3"> Contactos: </h3> {users}
     </div>
   );
